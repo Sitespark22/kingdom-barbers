@@ -1,2 +1,311 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0;url=kingdom-index.html"><title>Kingdom Barbers</title></head><body><a href='/kingdom-index'>Kingdom Barbers</a></body></html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingdom Barbers — St. George's Modern Barbershop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0F0F0F;
+  --charcoal: #1A1A1A;
+  --charcoal-mid: #222222;
+  --charcoal-light: #2A2A2A;
+  --gold: #B8860B;
+  --gold-light: #D4A017;
+  --crimson: #7B1E1E;
+  --crimson-hover: #621818;
+  --white: #F5F5F0;
+  --grey: #888888;
+  --muted: #555555;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,15,15,0.97);border-bottom:1px solid var(--charcoal-light);height:70px;display:flex;align-items:center;padding:0 5%}
+.nav-inner{width:100%;max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:1.25rem;font-weight:800;color:var(--gold);letter-spacing:0.04em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:500;color:var(--white);opacity:0.8;transition:opacity 0.2s}
+.nav-links a:hover,.nav-links a.active{opacity:1}
+.btn{display:inline-block;padding:0.6rem 1.4rem;border-radius:4px;font-family:'Manrope',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.03em;transition:all 0.2s;cursor:pointer}
+.btn-crimson{background:var(--crimson);color:var(--white);border:2px solid var(--crimson)}
+.btn-crimson:hover{background:var(--crimson-hover);border-color:var(--crimson-hover);transform:translateY(-2px)}
+.btn-gold{background:transparent;color:var(--gold);border:2px solid var(--gold)}
+.btn-gold:hover{background:var(--gold);color:var(--black);transform:translateY(-2px)}
+.btn-lg{padding:0.875rem 2rem;font-size:1rem}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 80px;background:linear-gradient(160deg,#0f0f0f 0%,#1a1a1a 70%,#1a1508 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(184,134,11,.08) 0%,transparent 65%);pointer-events:none}
+.hero-content{position:relative;max-width:700px}
+.section-label{font-family:'Manrope',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+.hero h1{font-family:'Manrope',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;margin-bottom:1.25rem;letter-spacing:-0.02em}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:1.125rem;color:rgba(245,245,240,0.7);max-width:520px;margin-bottom:2.5rem;line-height:1.7}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-deco{position:absolute;right:-40px;top:50%;transform:translateY(-50%);font-size:18rem;color:rgba(184,134,11,0.04);font-family:'Manrope',sans-serif;font-weight:800;user-select:none;pointer-events:none;line-height:1}
+
+.trust-strip{background:var(--charcoal);border-top:1px solid var(--charcoal-light);border-bottom:1px solid var(--charcoal-light);padding:1rem 5%}
+.trust-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap;gap:2rem}
+.trust-item{font-family:'Manrope',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);display:flex;align-items:center;gap:0.5rem}
+.trust-item::before{content:'♛';color:var(--gold);font-size:0.65rem}
+
+.section{padding:100px 5%}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-header{margin-bottom:3rem}
+.section-header h2{font-family:'Manrope',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.5rem}
+.gold-bar{width:48px;height:3px;background:var(--gold);margin-top:0.75rem}
+.section-alt{background:var(--charcoal-mid)}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.service-card{background:var(--charcoal);border:1px solid var(--charcoal-light);border-radius:6px;padding:2rem;transition:border-color 0.2s,transform 0.2s}
+.service-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.service-num{font-family:'Manrope',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.18em;color:var(--gold);margin-bottom:0.75rem}
+.service-card h3{font-family:'Manrope',sans-serif;font-size:1.15rem;font-weight:800;margin-bottom:0.5rem}
+.service-card p{font-size:0.875rem;color:var(--grey);line-height:1.65}
+
+.about-teaser{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text h2{font-family:'Manrope',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem}
+.about-text p{color:rgba(245,245,240,0.7);line-height:1.75;margin-bottom:1.5rem}
+.about-visual{background:var(--charcoal);border:1px solid var(--charcoal-light);border-radius:6px;height:420px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;flex-direction:column;gap:0.5rem}
+
+.hours-block{background:linear-gradient(160deg,#0f0f0f 0%,#1a1508 100%);border:1px solid var(--charcoal-light);border-radius:6px;padding:3.5rem 3rem;text-align:center}
+.hours-block h3{font-family:'Manrope',sans-serif;font-size:1.9rem;font-weight:800;margin:0.75rem 0 2rem}
+.hours-row{display:flex;justify-content:center;gap:3.5rem;flex-wrap:wrap}
+.hours-item .day{font-family:'Manrope',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);margin-bottom:0.3rem}
+.hours-item .time{font-family:'Manrope',sans-serif;font-size:1.5rem;font-weight:800;color:var(--gold-light)}
+.hours-item .closed{color:var(--muted)}
+
+.testimonial{background:var(--charcoal);border:1px solid var(--charcoal-light);border-radius:6px;padding:3rem;max-width:680px;margin:0 auto;text-align:center}
+.testimonial blockquote{font-family:'Manrope',sans-serif;font-size:1.2rem;font-weight:600;line-height:1.65;margin-bottom:1.25rem}
+.testimonial cite{font-size:0.82rem;color:var(--grey);font-style:normal;letter-spacing:0.08em;text-transform:uppercase}
+.stars{color:var(--gold);font-size:1rem;margin-bottom:1rem;letter-spacing:0.15em}
+
+.discount-banner{background:linear-gradient(135deg,#141408 0%,#1a1a10 100%);border-left:4px solid var(--gold);padding:1.5rem 5%}
+.discount-banner-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.discount-banner p{font-family:'Manrope',sans-serif;font-weight:600;font-size:0.9rem}
+.discount-banner span{color:var(--gold-light)}
+
+.cta-section{background:linear-gradient(160deg,#0f0f0f 0%,#1a1a1a 60%,#1a1508 100%);padding:100px 5%;text-align:center}
+.cta-section h2{font-family:'Manrope',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem}
+.cta-section p{color:rgba(245,245,240,0.6);margin-bottom:2rem}
+.cta-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+.info-strip{background:var(--charcoal);border-top:1px solid var(--charcoal-light);padding:2.5rem 5%}
+.info-strip-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.info-item h4{font-family:'Manrope',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.info-item p,.info-item a{font-size:0.9rem;color:rgba(245,245,240,0.65);line-height:1.65}
+.info-item a:hover{color:var(--gold)}
+
+footer{background:var(--black);border-top:1px solid var(--charcoal-light);padding:2rem 5%}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;color:var(--gold);letter-spacing:0.04em;text-transform:uppercase}
+footer p{color:var(--muted);font-size:0.8rem}
+footer a{color:var(--gold);transition:opacity 0.2s}
+footer a:hover{opacity:0.8}
+
+@media(max-width:900px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .about-teaser{grid-template-columns:1fr}
+  .info-strip-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .services-grid{grid-template-columns:1fr}
+  .info-strip-inner{grid-template-columns:1fr}
+  .hero-deco{display:none}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class='nav-logo' href='/kingdom-index'>Kingdom Barbers</a>
+    <ul class="nav-links">
+      <li><a class='active' href='/kingdom-index'>Home</a></li>
+      <li><a href='/kingdom-about'>About</a></li>
+      <li><a href='/kingdom-services'>Services</a></li>
+      <li><a href='/kingdom-gallery'>Gallery</a></li>
+      <li><a href='/kingdom-barbers'>Our Barbers</a></li>
+      <li><a href='/kingdom-contact'>Contact</a></li>
+      <li><a href="https://getsquire.com/booking/book/kingdom-barbers-st-george" class="btn btn-crimson" target="_blank" rel="noopener">Book Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <p class="section-label">St. George's Modern Barbershop</p>
+    <h1>Step Into Your <em>Kingdom.</em></h1>
+    <p class="hero-sub">Modern cuts, hot towel shaves, chill atmosphere. Where every chair is a throne.</p>
+    <div class="hero-ctas">
+      <a href="https://getsquire.com/booking/book/kingdom-barbers-st-george" class="btn btn-crimson btn-lg" target="_blank" rel="noopener">Book Now</a>
+      <a class='btn btn-gold btn-lg' href='/kingdom-barbers'>Meet Our Barbers</a>
+    </div>
+  </div>
+  <div class="hero-deco" aria-hidden="true">K</div>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-inner">
+    <span class="trust-item">Mon–Fri 9AM–7PM</span>
+    <span class="trust-item">Walk-Ins Welcome</span>
+    <span class="trust-item">Family Friendly</span>
+    <span class="trust-item">Est. St. George UT</span>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-label">What We Do</p>
+      <h2>The Craft</h2>
+      <div class="gold-bar"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <p class="service-num">01</p>
+        <h3>Fades &amp; Tapers</h3>
+        <p>Clean skin fades, mid fades, and tapers done with precision. The foundation of any great look.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">02</p>
+        <h3>Hot Towel Shaves</h3>
+        <p>The full barbershop experience. Hot towel, straight razor, and a finish that earns its name.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">03</p>
+        <h3>Beard Trims</h3>
+        <p>Sharp lineups, sculpted beards, hot towel neck shaves. Bring the shape — we keep it tight.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">04</p>
+        <h3>Classic Cuts</h3>
+        <p>Modern takes on timeless styles. Comb-overs, textured crops, disconnected looks — done right.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">05</p>
+        <h3>Kids' Cuts</h3>
+        <p>Patient barbers, clean results, fair prices. Bring the whole family — we've got everyone covered.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">06</p>
+        <h3>Senior &amp; Military</h3>
+        <p>Discounts for seniors and service members. We take care of the people who take care of us.</p>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem;text-align:center">
+      <a class='btn btn-gold' href='/kingdom-services'>View All Services &amp; Pricing</a>
+    </div>
+  </div>
+</section>
+
+<div class="discount-banner">
+  <div class="discount-banner-inner">
+    <p><span>Seniors &amp; Service Members</span> — Discounted pricing, always. No expiration, no fine print.</p>
+    <a class='btn btn-gold' href='/kingdom-services'>See Pricing</a>
+  </div>
+</div>
+
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="about-teaser">
+      <div class="about-visual" aria-label="Kingdom Barbers interior">
+        <span>&#9998;</span>
+        <span>Shop Photo Coming Soon</span>
+      </div>
+      <div class="about-text">
+        <p class="section-label">Our Story</p>
+        <h2>Your Kingdom Awaits</h2>
+        <div class="gold-bar" style="margin-bottom:1.5rem"></div>
+        <p>Kingdom Barbers was built for men who take their appearance seriously without taking themselves too seriously. We brought modern technique and a relaxed atmosphere to St. George — a place where you can get a genuinely great cut and actually enjoy the experience.</p>
+        <p>Manly and family-friendly. That's the Kingdom way.</p>
+        <a class='btn btn-gold' href='/kingdom-about'>Our Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="hours-block">
+      <p class="section-label">Open Later Than Most</p>
+      <h3>We Work When You Work</h3>
+      <div class="hours-row">
+        <div class="hours-item">
+          <p class="day">Monday – Friday</p>
+          <p class="time">9 AM – 7 PM</p>
+        </div>
+        <div class="hours-item">
+          <p class="day">Saturday</p>
+          <p class="time">9 AM – 5 PM</p>
+        </div>
+        <div class="hours-item">
+          <p class="day">Sunday</p>
+          <p class="time closed">Closed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="section-header" style="text-align:center">
+      <p class="section-label">What People Are Saying</p>
+      <h2>Real Clients, Real Results</h2>
+      <div class="gold-bar" style="margin:0.75rem auto 0"></div>
+    </div>
+    <div class="testimonial">
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <blockquote>"Best fade I've ever had. Chill vibe, fair price. My son and I both come here now — wouldn't go anywhere else in St. George."</blockquote>
+      <cite>— Kingdom Barbers Customer, St. George UT</cite>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="section-inner">
+    <p class="section-label">Get in the Chair</p>
+    <h2>Ready to Take the Throne?</h2>
+    <p>Book online in seconds. Walk-ins welcome when we have room.</p>
+    <div class="cta-ctas">
+      <a href="https://getsquire.com/booking/book/kingdom-barbers-st-george" class="btn btn-crimson btn-lg" target="_blank" rel="noopener">Book Now on Squire</a>
+      <a class='btn btn-gold btn-lg' href='/kingdom-contact'>Find Us</a>
+    </div>
+  </div>
+</section>
+
+<div class="info-strip">
+  <div class="info-strip-inner">
+    <div class="info-item">
+      <h4>Location</h4>
+      <p><a href="https://maps.google.com/?q=1812+W+Sunset+Blvd+Suite+22+St+George+UT+84770" target="_blank" rel="noopener">1812 W Sunset Blvd, Suite 22<br>St. George, UT 84770</a></p>
+    </div>
+    <div class="info-item">
+      <h4>Phone</h4>
+      <p><a href="tel:4353577844">(435) 357-7844</a></p>
+    </div>
+    <div class="info-item">
+      <h4>Hours</h4>
+      <p>Mon–Fri: 9 AM – 7 PM<br>Saturday: 9 AM – 5 PM<br>Sunday: Closed</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Kingdom Barbers</span>
+    <p>1812 W Sunset Blvd, Suite 22 &mdash; St. George, UT 84770 &mdash; <a href="tel:4353577844">(435) 357-7844</a></p>
+    <p><a href="https://www.instagram.com/kingdom_barbers_stg" target="_blank" rel="noopener">@kingdom_barbers_stg</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
