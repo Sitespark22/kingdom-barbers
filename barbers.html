@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Barbers — Kingdom Barbers St. George</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0F0F0F;--charcoal:#1A1A1A;--charcoal-mid:#222222;--charcoal-light:#2A2A2A;--gold:#B8860B;--gold-light:#D4A017;--crimson:#7B1E1E;--crimson-hover:#621818;--white:#F5F5F0;--grey:#888888;--muted:#555555}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,15,15,0.97);border-bottom:1px solid var(--charcoal-light);height:70px;display:flex;align-items:center;padding:0 5%}
+.nav-inner{width:100%;max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:1.25rem;font-weight:800;color:var(--gold);letter-spacing:0.04em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{font-size:0.875rem;font-weight:500;color:var(--white);opacity:0.8;transition:opacity 0.2s}
+.nav-links a:hover,.nav-links a.active{opacity:1}
+.btn{display:inline-block;padding:0.6rem 1.4rem;border-radius:4px;font-family:'Manrope',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.03em;transition:all 0.2s}
+.btn-crimson{background:var(--crimson);color:var(--white);border:2px solid var(--crimson)}
+.btn-crimson:hover{background:var(--crimson-hover);border-color:var(--crimson-hover);transform:translateY(-2px)}
+.btn-gold{background:transparent;color:var(--gold);border:2px solid var(--gold)}
+.btn-gold:hover{background:var(--gold);color:var(--black);transform:translateY(-2px)}
+.btn-lg{padding:0.875rem 2rem;font-size:1rem}
+
+.page-hero{padding:140px 5% 80px;background:linear-gradient(160deg,#0f0f0f 0%,#1a1a1a 70%,#1a1508 100%);position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 80%,rgba(184,134,11,.07) 0%,transparent 60%);pointer-events:none}
+.page-hero-inner{max-width:1200px;margin:0 auto;position:relative}
+.section-label{font-family:'Manrope',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.page-hero h1{font-family:'Manrope',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem}
+.page-hero p{font-size:1.05rem;color:rgba(245,245,240,0.65);max-width:600px}
+.gold-bar{width:48px;height:3px;background:var(--gold)}
+
+.section{padding:100px 5%}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-alt{background:var(--charcoal-mid)}
+
+.barbers-intro{max-width:680px;margin:0 auto 3.5rem;text-align:center;color:rgba(245,245,240,0.65);font-size:0.975rem;line-height:1.75}
+
+.barbers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-bottom:1.5rem}
+.barber-card{background:var(--charcoal);border:1px solid var(--charcoal-light);border-radius:6px;overflow:hidden;transition:border-color 0.2s,transform 0.2s}
+.barber-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.barber-photo{height:280px;background:var(--charcoal-mid);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;flex-direction:column;gap:0.4rem;border-bottom:1px solid var(--charcoal-light)}
+.barber-photo span:first-child{font-size:2rem;color:var(--charcoal-light)}
+.barber-info{padding:1.75rem}
+.barber-title{font-family:'Manrope',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.barber-name{font-family:'Manrope',sans-serif;font-size:1.25rem;font-weight:800;margin-bottom:0.75rem}
+.barber-specs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.spec-tag{background:rgba(184,134,11,0.1);border:1px solid rgba(184,134,11,0.2);border-radius:3px;padding:0.2rem 0.6rem;font-family:'Manrope',sans-serif;font-size:0.7rem;font-weight:700;color:var(--gold);letter-spacing:0.05em}
+.barber-bio{font-size:0.875rem;color:var(--grey);line-height:1.65;margin-bottom:1.25rem}
+
+.barber-card.coming-soon{opacity:0.5;cursor:default}
+.barber-card.coming-soon:hover{transform:none;border-color:var(--charcoal-light)}
+.coming-soon-label{font-family:'Manrope',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-align:center;padding:2rem}
+
+.barbers-note{font-style:italic;font-size:0.875rem;color:var(--muted);text-align:center;margin-top:1rem}
+
+.fallback-cta{background:linear-gradient(160deg,#0f0f0f 0%,#1a1508 100%);border:1px solid var(--charcoal-light);border-radius:6px;padding:3.5rem;text-align:center;margin-top:3rem}
+.fallback-cta h3{font-family:'Manrope',sans-serif;font-size:1.75rem;font-weight:800;margin-bottom:0.75rem}
+.fallback-cta p{color:rgba(245,245,240,0.6);margin-bottom:2rem}
+
+.cta-section{background:linear-gradient(160deg,#0f0f0f 0%,#1a1a1a 60%,#1a1508 100%);padding:100px 5%;text-align:center}
+.cta-section h2{font-family:'Manrope',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem}
+.cta-section p{color:rgba(245,245,240,0.6);margin-bottom:2rem}
+.cta-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+footer{background:var(--black);border-top:1px solid var(--charcoal-light);padding:2rem 5%}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;color:var(--gold);letter-spacing:0.04em;text-transform:uppercase}
+footer p{color:var(--muted);font-size:0.8rem}
+footer a{color:var(--gold)}
+footer a:hover{opacity:0.8}
+
+@media(max-width:900px){.barbers-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.nav-links{display:none}.barbers-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class='nav-logo' href='/kingdom-index'>Kingdom Barbers</a>
+    <ul class="nav-links">
+      <li><a href='/kingdom-index'>Home</a></li>
+      <li><a href='/kingdom-about'>About</a></li>
+      <li><a href='/kingdom-services'>Services</a></li>
+      <li><a href='/kingdom-gallery'>Gallery</a></li>
+      <li><a class='active' href='/kingdom-barbers'>Our Barbers</a></li>
+      <li><a href='/kingdom-contact'>Contact</a></li>
+      <li><a href="https://getsquire.com/booking/book/kingdom-barbers-st-george" class="btn btn-crimson" target="_blank" rel="noopener">Book Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="section-label">Our Barbers</p>
+    <h1>Choose Your Barber.<br>Claim Your Throne.</h1>
+    <div class="gold-bar" style="margin-top:1.5rem"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="barbers-intro">Every barber at Kingdom brings their own style to the chair. Book with your barber directly on Squire, or let us match you with whoever's next available.</p>
+
+    <div class="barbers-grid">
+
+      <div class="barber-card">
+        <div class="barber-photo">
+          <span>&#9998;</span>
+          <span>Photo Coming Soon</span>
+        </div>
+        <div class="barber-info">
+          <p class="barber-title">Head Barber</p>
+          <p class="barber-name">[Barber Name]</p>
+          <div class="barber-specs">
+            <span class="spec-tag">Skin Fades</span>
+            <span class="spec-tag">Hot Towel</span>
+            <span class="spec-tag">Classic Cuts</span>
+          </div>
+          <p class="barber-bio">Our lead barber sets the standard for every cut in the shop. Precision technique, chill vibe, booked solid. Get on the calendar early.</p>
+          <a href="https://getsquire.com/booking/book/kingdom-barbers-st-george" class="btn btn-crimson" target="_blank" rel="noopener" style="width:100%;text-align:center;display:block">Book This Barber</a>
+        </div>
+      </div>
+
+      <div class="barber-card">
+        <div class="barber-photo">
+          <span>&#9998;</span>
+          <span>Photo Coming Soon</span>
+        </div>
+        <div class="barber-info">
+          <p class="barber-title">Senior Barber</p>
+          <p class="barber-name">[Barber Name]</p>
+          <div class="barber-specs">
+            <span class="spec-tag">Fades</span>
+            <span class="spec-tag">Beard Sculpting</span>
+            <span class="spec-tag">Kids</span>
+          </div>
+          <p class="barber-bio">Years of experience behind the chair. Great with adults, great with kids, and quick without sacrificing quality.</p>
+          <a href="https://getsquire.com/booking/book/kingdom-barbers-st-george" class="btn btn-crimson" target="_blank" rel="noopener" style="width:100%;text-align:center;display:block">Book This Barber</a>
+        </div>
+      </div>
+
+      <div class="barber-card">
+        <div class="barber-photo">
+          <span>&#9998;</span>
+          <span>Photo Coming Soon</span>
+        </div>
+        <div class="barber-info">
+          <p class="barber-title">Barber</p>
+          <p class="barber-name">[Barber Name]</p>
+          <div class="barber-specs">
+            <span class="spec-tag">Tapers</span>
+            <span class="spec-tag">Designs</span>
+            <span class="spec-tag">Line-Ups</span>
+          </div>
+          <p class="barber-bio">Clean lines, creative designs, consistent results. Bring a reference photo — he'll deliver.</p>
+          <a href="https://getsquire.com/booking/book/kingdom-barbers-st-george" class="btn btn-crimson" target="_blank" rel="noopener" style="width:100%;text-align:center;display:block">Book This Barber</a>
+        </div>
+      </div>
+
+      <div class="barber-card coming-soon">
+        <div class="barber-photo">
+          <span style="font-size:1.5rem">&#43;</span>
+          <span>Coming Soon</span>
+        </div>
+        <div class="barber-info">
+          <p class="barber-title">Expanding the Kingdom</p>
+          <p class="barber-name">New Chair Opening</p>
+          <p class="barber-bio">We're growing. A new barber is joining the Kingdom soon — stay tuned.</p>
+          <p class="coming-soon-label">Coming Soon</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="barbers-note">Full barber roster, photos, and individual booking links coming soon. In the meantime, book the next available chair below.</p>
+
+    <div class="fallback-cta">
+      <p class="section-label">Next Available</p>
+      <h3>Book the Next Available Throne</h3>
+      <p>Don't have a preferred barber yet? No problem. Book the next available appointment and let us handle the rest.</p>
+      <a href="https://getsquire.com/booking/book/kingdom-barbers-st-george" class="btn btn-crimson btn-lg" target="_blank" rel="noopener">Book the Next Available Throne</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="section-inner">
+    <p class="section-label">Questions?</p>
+    <h2>Not Sure Who to Book?</h2>
+    <p>Give us a call and we'll help you find the right barber for what you need.</p>
+    <div class="cta-ctas">
+      <a href="tel:4353577844" class="btn btn-crimson btn-lg">(435) 357-7844</a>
+      <a class='btn btn-gold btn-lg' href='/kingdom-contact'>Find Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Kingdom Barbers</span>
+    <p>1812 W Sunset Blvd, Suite 22 &mdash; St. George, UT 84770 &mdash; <a href="tel:4353577844">(435) 357-7844</a></p>
+    <p><a href="https://www.instagram.com/kingdom_barbers_stg" target="_blank" rel="noopener">@kingdom_barbers_stg</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
