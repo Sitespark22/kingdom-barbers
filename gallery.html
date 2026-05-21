@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Kingdom Barbers St. George</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0F0F0F;--charcoal:#1A1A1A;--charcoal-mid:#222222;--charcoal-light:#2A2A2A;--gold:#B8860B;--gold-light:#D4A017;--crimson:#7B1E1E;--crimson-hover:#621818;--white:#F5F5F0;--grey:#888888;--muted:#555555}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,15,15,0.97);border-bottom:1px solid var(--charcoal-light);height:70px;display:flex;align-items:center;padding:0 5%}
+.nav-inner{width:100%;max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:1.25rem;font-weight:800;color:var(--gold);letter-spacing:0.04em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{font-size:0.875rem;font-weight:500;color:var(--white);opacity:0.8;transition:opacity 0.2s}
+.nav-links a:hover,.nav-links a.active{opacity:1}
+.btn{display:inline-block;padding:0.6rem 1.4rem;border-radius:4px;font-family:'Manrope',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.03em;transition:all 0.2s}
+.btn-crimson{background:var(--crimson);color:var(--white);border:2px solid var(--crimson)}
+.btn-crimson:hover{background:var(--crimson-hover);border-color:var(--crimson-hover);transform:translateY(-2px)}
+.btn-gold{background:transparent;color:var(--gold);border:2px solid var(--gold)}
+.btn-gold:hover{background:var(--gold);color:var(--black);transform:translateY(-2px)}
+.btn-lg{padding:0.875rem 2rem;font-size:1rem}
+
+.page-hero{padding:140px 5% 80px;background:linear-gradient(160deg,#0f0f0f 0%,#1a1a1a 70%,#1a1508 100%);position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 80%,rgba(184,134,11,.07) 0%,transparent 60%);pointer-events:none}
+.page-hero-inner{max-width:1200px;margin:0 auto;position:relative}
+.section-label{font-family:'Manrope',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.page-hero h1{font-family:'Manrope',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem}
+.page-hero p{font-size:1.1rem;color:rgba(245,245,240,0.65);max-width:560px}
+.gold-bar{width:48px;height:3px;background:var(--gold)}
+
+.section{padding:80px 5%}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-alt{background:var(--charcoal-mid)}
+
+.filter-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.filter-tab{padding:0.5rem 1.1rem;border-radius:4px;font-family:'Manrope',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;border:1px solid var(--charcoal-light);color:var(--grey);cursor:pointer;transition:all 0.2s;background:transparent}
+.filter-tab:hover,.filter-tab.active{border-color:var(--gold);color:var(--gold);background:rgba(184,134,11,0.08)}
+
+.gallery-grid{columns:3;column-gap:1rem}
+.gallery-item{break-inside:avoid;margin-bottom:1rem;background:var(--charcoal);border:1px solid var(--charcoal-light);border-radius:6px;overflow:hidden;transition:border-color 0.2s}
+.gallery-item:hover{border-color:var(--gold)}
+.gallery-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.4rem;color:var(--muted);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase}
+.gallery-placeholder .cat-label{font-family:'Manrope',sans-serif;font-weight:700;color:var(--charcoal-light)}
+
+.ig-block{background:linear-gradient(135deg,#141408 0%,#1a1a10 100%);border:1px solid var(--charcoal-light);border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.ig-block h3{font-family:'Manrope',sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:0.4rem}
+.ig-block p{color:rgba(245,245,240,0.65);font-size:0.9rem}
+
+.style-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:3rem}
+.style-card{background:var(--charcoal);border:1px solid var(--charcoal-light);border-radius:6px;padding:1.75rem 1.5rem;transition:border-color 0.2s,transform 0.2s}
+.style-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.style-num{font-family:'Manrope',sans-serif;font-size:2rem;font-weight:800;color:rgba(184,134,11,0.25);line-height:1;margin-bottom:0.5rem}
+.style-card h3{font-family:'Manrope',sans-serif;font-size:1rem;font-weight:800;margin-bottom:0.4rem}
+.style-card p{font-size:0.82rem;color:var(--grey)}
+
+.cta-section{background:linear-gradient(160deg,#0f0f0f 0%,#1a1a1a 60%,#1a1508 100%);padding:100px 5%;text-align:center}
+.cta-section h2{font-family:'Manrope',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem}
+.cta-section p{color:rgba(245,245,240,0.6);margin-bottom:2rem}
+.cta-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+footer{background:var(--black);border-top:1px solid var(--charcoal-light);padding:2rem 5%}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;color:var(--gold);letter-spacing:0.04em;text-transform:uppercase}
+footer p{color:var(--muted);font-size:0.8rem}
+footer a{color:var(--gold)}
+footer a:hover{opacity:0.8}
+
+@media(max-width:900px){.gallery-grid{columns:2}.style-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.nav-links{display:none}.gallery-grid{columns:1}.style-cards{grid-template-columns:1fr}.footer-inner{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class='nav-logo' href='/kingdom-index'>Kingdom Barbers</a>
+    <ul class="nav-links">
+      <li><a href='/kingdom-index'>Home</a></li>
+      <li><a href='/kingdom-about'>About</a></li>
+      <li><a href='/kingdom-services'>Services</a></li>
+      <li><a class='active' href='/kingdom-gallery'>Gallery</a></li>
+      <li><a href='/kingdom-barbers'>Our Barbers</a></li>
+      <li><a href='/kingdom-contact'>Contact</a></li>
+      <li><a href="https://getsquire.com/booking/book/kingdom-barbers-st-george" class="btn btn-crimson" target="_blank" rel="noopener">Book Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="section-label">The Work</p>
+    <h1>Every Cut Earns<br>Its Throne.</h1>
+    <p style="margin-top:1rem">Real cuts. Real clients. The proof is in the chair.</p>
+    <div class="gold-bar" style="margin-top:1.5rem"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="fades">Fades</button>
+      <button class="filter-tab" data-filter="beards">Beards</button>
+      <button class="filter-tab" data-filter="hot-towel">Hot Towel</button>
+      <button class="filter-tab" data-filter="classic">Classic</button>
+      <button class="filter-tab" data-filter="kids">Kids</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" data-cat="fades" style="height:300px"><div class="gallery-placeholder" style="height:100%"><span style="font-size:1.5rem;color:var(--charcoal-light)">&#9998;</span><span>Fade — Photo Coming Soon</span></div></div>
+      <div class="gallery-item" data-cat="beards" style="height:240px"><div class="gallery-placeholder" style="height:100%"><span style="font-size:1.5rem;color:var(--charcoal-light)">&#9998;</span><span>Beard — Photo Coming Soon</span></div></div>
+      <div class="gallery-item" data-cat="classic" style="height:280px"><div class="gallery-placeholder" style="height:100%"><span style="font-size:1.5rem;color:var(--charcoal-light)">&#9998;</span><span>Classic — Photo Coming Soon</span></div></div>
+      <div class="gallery-item" data-cat="fades" style="height:260px"><div class="gallery-placeholder" style="height:100%"><span style="font-size:1.5rem;color:var(--charcoal-light)">&#9998;</span><span>Fade — Photo Coming Soon</span></div></div>
+      <div class="gallery-item" data-cat="hot-towel" style="height:300px"><div class="gallery-placeholder" style="height:100%"><span style="font-size:1.5rem;color:var(--charcoal-light)">&#9998;</span><span>Hot Towel — Photo Coming Soon</span></div></div>
+      <div class="gallery-item" data-cat="kids" style="height:220px"><div class="gallery-placeholder" style="height:100%"><span style="font-size:1.5rem;color:var(--charcoal-light)">&#9998;</span><span>Kids — Photo Coming Soon</span></div></div>
+      <div class="gallery-item" data-cat="fades" style="height:280px"><div class="gallery-placeholder" style="height:100%"><span style="font-size:1.5rem;color:var(--charcoal-light)">&#9998;</span><span>Fade — Photo Coming Soon</span></div></div>
+      <div class="gallery-item" data-cat="beards" style="height:250px"><div class="gallery-placeholder" style="height:100%"><span style="font-size:1.5rem;color:var(--charcoal-light)">&#9998;</span><span>Beard — Photo Coming Soon</span></div></div>
+      <div class="gallery-item" data-cat="classic" style="height:300px"><div class="gallery-placeholder" style="height:100%"><span style="font-size:1.5rem;color:var(--charcoal-light)">&#9998;</span><span>Classic — Photo Coming Soon</span></div></div>
+      <div class="gallery-item" data-cat="hot-towel" style="height:260px"><div class="gallery-placeholder" style="height:100%"><span style="font-size:1.5rem;color:var(--charcoal-light)">&#9998;</span><span>Hot Towel — Photo Coming Soon</span></div></div>
+      <div class="gallery-item" data-cat="fades" style="height:290px"><div class="gallery-placeholder" style="height:100%"><span style="font-size:1.5rem;color:var(--charcoal-light)">&#9998;</span><span>Fade — Photo Coming Soon</span></div></div>
+      <div class="gallery-item" data-cat="kids" style="height:240px"><div class="gallery-placeholder" style="height:100%"><span style="font-size:1.5rem;color:var(--charcoal-light)">&#9998;</span><span>Kids — Photo Coming Soon</span></div></div>
+    </div>
+
+    <div class="ig-block" style="margin-top:3rem">
+      <div>
+        <h3>Follow @kingdom_barbers_stg</h3>
+        <p>172 posts of real cuts, real clients. The best proof of our work is on Instagram.</p>
+      </div>
+      <a href="https://www.instagram.com/kingdom_barbers_stg" class="btn btn-gold btn-lg" target="_blank" rel="noopener">Follow on Instagram</a>
+    </div>
+
+    <div>
+      <p class="section-label" style="margin-top:4rem;margin-bottom:0.5rem">Signature Services</p>
+      <h2 style="font-family:'Manrope',sans-serif;font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.5rem">The Kingdom Signature Styles</h2>
+      <div class="gold-bar" style="margin-bottom:0.5rem"></div>
+      <div class="style-cards">
+        <div class="style-card">
+          <p class="style-num">01</p>
+          <h3>The Kingdom Fade</h3>
+          <p>Crisp skin fade, tight taper, clean lineup. Our most popular service for a reason.</p>
+        </div>
+        <div class="style-card">
+          <p class="style-num">02</p>
+          <h3>The Throne Shave</h3>
+          <p>Hot towel prep, straight razor, cool towel finish. The full treatment.</p>
+        </div>
+        <div class="style-card">
+          <p class="style-num">03</p>
+          <h3>The Classic</h3>
+          <p>Timeless cuts done with modern precision. Clean, versatile, always sharp.</p>
+        </div>
+        <div class="style-card">
+          <p class="style-num">04</p>
+          <h3>The Bundle</h3>
+          <p>Haircut + beard sculpt. The full package — haircut and beard done right in one visit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="section-inner">
+    <p class="section-label">Your Turn</p>
+    <h2>Want a Cut Like This?</h2>
+    <p>Book your appointment and we'll take care of the rest.</p>
+    <div class="cta-ctas">
+      <a href="https://getsquire.com/booking/book/kingdom-barbers-st-george" class="btn btn-crimson btn-lg" target="_blank" rel="noopener">Book Now on Squire</a>
+      <a class='btn btn-gold btn-lg' href='/kingdom-barbers'>Meet Our Barbers</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Kingdom Barbers</span>
+    <p>1812 W Sunset Blvd, Suite 22 &mdash; St. George, UT 84770 &mdash; <a href="tel:4353577844">(435) 357-7844</a></p>
+    <p><a href="https://www.instagram.com/kingdom_barbers_stg" target="_blank" rel="noopener">@kingdom_barbers_stg</a></p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.dataset.filter;
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      if(filter === 'all' || item.dataset.cat === filter) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
